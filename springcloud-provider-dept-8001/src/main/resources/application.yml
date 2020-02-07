@@ -1,0 +1,26 @@
+server:
+  port: 8001
+mybatis:
+  type-aliases-package: org.java.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    url: jdbc:mysql:///cloud?useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-dept-8001 #修改eureka默认描述
+    prefer-ip-address: true #显示IP
+#监控信息
+info:
+  app.name: springcloud-provider-dept-8001
+  company.name: scp
